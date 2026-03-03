@@ -115,6 +115,125 @@ body {
   100%{opacity:0;transform:translateY(108vh) rotate(520deg) translateX(70px);}
 }
 
+/* ══ POLAROIDS ══ */
+#polaroids {
+  position:fixed;inset:0;z-index:2;pointer-events:none;overflow:hidden;
+}
+.polaroid {
+  position:absolute;
+  width:150px;
+  background:#fff;
+  padding:10px 10px 32px 10px;
+  box-shadow:0 8px 32px rgba(0,0,0,.55), 0 2px 8px rgba(0,0,0,.35);
+  pointer-events:none;
+  transform-origin:50% 20%;  /* hang from top */
+  will-change:transform;
+}
+.polaroid .pimg {
+  width:100%;height:130px;
+  background:linear-gradient(135deg,#3a0818,#7a1535);
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;font-size:2rem;color:rgba(200,100,130,.3);
+  flex-direction:column;gap:.2rem;
+}
+.polaroid .pimg img { width:100%;height:100%;object-fit:cover;display:block; }
+.polaroid .pimg span { font-size:.55rem;letter-spacing:.15em;color:rgba(200,100,130,.25);font-family:'Cormorant Garamond',serif; }
+.polaroid .pcap {
+  text-align:center;margin-top:6px;
+  font-family:'Dancing Script',cursive;
+  font-size:.75rem;color:#555;letter-spacing:.03em;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+/* Each polaroid gets its own sway keyframe via inline style */
+@keyframes sway0{0%,100%{transform:var(--base) rotate(-2deg)}50%{transform:var(--base) rotate(2deg)}}
+@keyframes sway1{0%,100%{transform:var(--base) rotate(3deg)}50%{transform:var(--base) rotate(-1.5deg)}}
+@keyframes sway2{0%,100%{transform:var(--base) rotate(-4deg)}50%{transform:var(--base) rotate(1deg)}}
+@keyframes sway3{0%,100%{transform:var(--base) rotate(1.5deg)}50%{transform:var(--base) rotate(-3deg)}}
+@keyframes sway4{0%,100%{transform:var(--base) rotate(-1deg)}50%{transform:var(--base) rotate(3.5deg)}}
+@keyframes sway5{0%,100%{transform:var(--base) rotate(2.5deg)}50%{transform:var(--base) rotate(-2deg)}}
+@keyframes sway6{0%,100%{transform:var(--base) rotate(-3.5deg)}50%{transform:var(--base) rotate(.5deg)}}
+@keyframes sway7{0%,100%{transform:var(--base) rotate(.5deg)}50%{transform:var(--base) rotate(-3deg)}}
+@keyframes sway8{0%,100%{transform:var(--base) rotate(-2.5deg)}50%{transform:var(--base) rotate(2deg)}}
+@keyframes sway9{0%,100%{transform:var(--base) rotate(1deg)}50%{transform:var(--base) rotate(-2.5deg)}}
+
+/* ══ FILM STRIP SLIDESHOW ══ */
+#ss {
+  background:#111;
+}
+/* Film strip top & bottom sprocket bars */
+#ss::before, #ss::after {
+  content:'';
+  position:absolute;left:0;right:0;height:44px;z-index:20;
+  background: repeating-linear-gradient(
+    90deg,
+    #1a1a1a 0px, #1a1a1a 10px,
+    transparent 10px, transparent 16px,
+    #1a1a1a 16px, #1a1a1a 22px,
+    transparent 22px, transparent 36px,
+    #1a1a1a 36px, #1a1a1a 46px,
+    transparent 46px, transparent 50px
+  );
+  pointer-events:none;
+}
+#ss::before { top:0; }
+#ss::after  { bottom:0; }
+
+/* Sprocket holes row */
+.film-holes-top, .film-holes-bot {
+  position:absolute;left:0;right:0;height:44px;z-index:21;
+  display:flex;align-items:center;padding:0 12px;gap:18px;
+  pointer-events:none;
+}
+.film-holes-top { top:0; }
+.film-holes-bot { bottom:0; }
+.hole {
+  width:22px;height:16px;border-radius:3px;
+  background:#111;border:2px solid #333;
+  flex-shrink:0;
+}
+
+/* Film frame border around current slide */
+.sl {
+  padding:44px 0;  /* space for sprocket bars */
+}
+.sl.act::after {
+  content:'';
+  position:absolute;
+  top:44px;bottom:44px;left:0;right:0;
+  border:3px solid rgba(255,220,100,.08);
+  pointer-events:none;z-index:5;
+}
+
+/* Film grain overlay on slideshow */
+#ss .grain {
+  position:absolute;inset:0;z-index:6;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+  background-size:200px 200px;opacity:.35;mix-blend-mode:overlay;
+  animation:grainShift 0.12s steps(1) infinite;
+}
+@keyframes grainShift {
+  0%  {background-position:0 0}
+  25% {background-position:-30px 20px}
+  50% {background-position:15px -10px}
+  75% {background-position:-20px 30px}
+}
+
+/* Film counter stamp */
+.film-stamp {
+  position:absolute;bottom:52px;right:16px;z-index:22;
+  font-family:'Courier New',monospace;
+  color:rgba(255,200,80,.55);font-size:.7rem;letter-spacing:.1em;
+  pointer-events:none;
+  text-shadow:0 0 8px rgba(255,160,0,.4);
+}
+
+/* Slide transition - film advance feel */
+.sl.act { animation:filmAdv .45s cubic-bezier(.22,1,.36,1); }
+@keyframes filmAdv {
+  from{opacity:0;transform:translateX(30px);}
+  to{opacity:1;transform:translateX(0);}
+}
+
 /* ══ MAIN ══ */
 #site{opacity:0;transition:opacity 1.6s;}
 #site.on{opacity:1;}
@@ -410,6 +529,19 @@ footer b{color:var(--rose);font-weight:normal;}
   </div>
   <div id="vign"></div>
 
+  <!-- FLOATING POLAROIDS -->
+  <div id="polaroids">
+    <div class="polaroid" id="pol0"><div class="pimg">📷<span>your photo</span></div><div class="pcap">us 💕</div></div>
+    <div class="polaroid" id="pol1"><div class="pimg">📷<span>your photo</span></div><div class="pcap">always 🌹</div></div>
+    <div class="polaroid" id="pol2"><div class="pimg">📷<span>your photo</span></div><div class="pcap">my love</div></div>
+    <div class="polaroid" id="pol3"><div class="pimg">📷<span>your photo</span></div><div class="pcap">forever 💗</div></div>
+    <div class="polaroid" id="pol4"><div class="pimg">📷<span>your photo</span></div><div class="pcap">together</div></div>
+    <div class="polaroid" id="pol5"><div class="pimg">📷<span>your photo</span></div><div class="pcap">you &amp; me</div></div>
+    <div class="polaroid" id="pol6"><div class="pimg">📷<span>your photo</span></div><div class="pcap">happy 8th 🌸</div></div>
+    <div class="polaroid" id="pol7"><div class="pimg">📷<span>your photo</span></div><div class="pcap">my world</div></div>
+    <div class="polaroid" id="pol8"><div class="pimg">📷<span>your photo</span></div><div class="pcap">home 🏡</div></div>
+  </div>
+
   <!-- HERO -->
   <section id="hero">
     <p class="eyebrow">8th March · Women's Day</p>
@@ -547,6 +679,15 @@ footer b{color:var(--rose);font-weight:normal;}
 
 <!-- SLIDESHOW -->
 <div id="ss">
+  <!-- Film sprocket holes top -->
+  <div class="film-holes-top" id="filmHolesTop"></div>
+  <!-- Film sprocket holes bottom -->
+  <div class="film-holes-bot" id="filmHolesBot"></div>
+  <!-- Film grain -->
+  <div class="grain"></div>
+  <!-- Film counter -->
+  <div class="film-stamp" id="filmStamp">♦ 001 ♦</div>
+
   <div class="stb">
     <span class="sctr" id="sctr">1 / 8</span>
     <span class="sttl">our story 💕</span>
@@ -655,7 +796,64 @@ function updSl(){
   sls.forEach((s,i)=>s.classList.toggle('act',i===ci));
   document.getElementById('sctr').textContent=`${ci+1} / ${sls.length}`;
   document.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('act',i===ci));
+  const stamp=document.getElementById('filmStamp');
+  if(stamp) stamp.textContent=`♦ ${String(ci+1).padStart(3,'0')} ♦`;
 }
+/* ── POLAROIDS ── */
+(function(){
+  // Positions: [left%, top%] for each polaroid — spread across the screen
+  const positions=[
+    [2,5],[12,55],[3,80],[78,8],[85,50],[80,78],
+    [40,3],[55,88],[22,28]
+  ];
+  const swayAnims=['sway0','sway1','sway2','sway3','sway4','sway5','sway6','sway7','sway8'];
+  const durations=[5,6.5,4.8,7,5.5,6,4.5,7.5,5.2];
+
+  positions.forEach((pos,i)=>{
+    const el=document.getElementById('pol'+i);
+    if(!el)return;
+    const baseRot=(Math.random()*20-10).toFixed(1);
+    const baseTranslate=`translate(-50%,-50%) rotate(${baseRot}deg)`;
+    el.style.setProperty('--base',baseTranslate);
+    el.style.left=pos[0]+'%';
+    el.style.top=pos[1]+'%';
+    el.style.animation=`${swayAnims[i%swayAnims.length]} ${durations[i]}s ease-in-out infinite`;
+    el.style.animationDelay=`-${(i*1.3).toFixed(1)}s`;
+    el.style.opacity='0';
+    el.style.transition='opacity 1.5s ease';
+    el.style.transform=baseTranslate;
+    // Scale variety
+    const scale=(0.78+Math.random()*0.38).toFixed(2);
+    el.style.setProperty('--base',`translate(-50%,-50%) rotate(${baseRot}deg) scale(${scale})`);
+  });
+
+  // Fade polaroids in after site enters
+  const origEnter=window.enter;
+  window.enter=function(){
+    origEnter();
+    setTimeout(()=>{
+      positions.forEach((_,i)=>{
+        const el=document.getElementById('pol'+i);
+        if(el) setTimeout(()=>{ el.style.opacity='1'; },i*180);
+      });
+    },1800);
+  };
+})();
+
+/* ── FILM STRIP HOLES ── */
+(function(){
+  function buildHoles(containerId){
+    const c=document.getElementById(containerId);
+    if(!c)return;
+    const count=Math.ceil(window.innerWidth/50)+4;
+    for(let i=0;i<count;i++){
+      const h=document.createElement('div');h.className='hole';c.appendChild(h);
+    }
+  }
+  buildHoles('filmHolesTop');
+  buildHoles('filmHolesBot');
+})();
+
 document.addEventListener('keydown',e=>{
   const ssOn=document.getElementById('ss').classList.contains('on');
   const hmOn=document.getElementById('hmodal').classList.contains('on');
