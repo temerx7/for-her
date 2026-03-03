@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Мерекең құтты болсын, Сұлуым💕</title>
+<title>Happy 8th March, My Love 💕</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lora:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -297,10 +297,8 @@ body {
 }
 #intro-photo {
   position:absolute;inset:0;
-  background:linear-gradient(135deg,#180410,#480f22);
-  /* ✏️ To add cover photo: replace the line above with:
-     background-image:url('photos/cover.jpg');
-     background-size:cover;background-position:center; */
+  background-image:url('photos/cover.jpg');
+  background-size:cover;background-position:center;
 }
 #intro-photo.zoom { animation:izoom 4s ease-in-out forwards; }
 @keyframes izoom {
@@ -439,6 +437,14 @@ body {
   0%,100%{opacity:0;transform:scale(0) rotate(0deg);}
   20%,80%{opacity:.7;transform:scale(1) rotate(180deg);}
   50%{opacity:.5;transform:scale(1.2) rotate(360deg);}
+}
+
+/* Film frame PNG overlay */
+.frame-overlay {
+  position:absolute;inset:0;z-index:15;pointer-events:none;
+  background-image:url('photos/frame.png');
+  background-size:cover;background-position:center;
+  background-repeat:no-repeat;
 }
 
 /* ══ KODAK ULTRAMAX SLIDESHOW ══ */
@@ -883,8 +889,7 @@ footer b{color:var(--rose);font-weight:normal;}
 <div id="secret-page">
   <button class="sp-close" onclick="closeSecret()">×</button>
   <div class="sp-photo">
-    <!-- ✏️ Replace with: <img src="photos/secret.jpg"> -->
-    📷<span style="font-size:.7rem;letter-spacing:.2em;font-family:'Lora',serif;">add your photo here</span>
+    <img src="photos/secret.jpg" alt="">
   </div>
   <p class="sp-msg">Осы жерге басатыныңды білген едім, жарығым 💕</p>
   <p class="sp-sub">— сен менің барлығымсың</p>
@@ -892,9 +897,7 @@ footer b{color:var(--rose);font-weight:normal;}
 
 <!-- ══ INTRO ══ -->
 <div id="intro">
-  <div id="intro-photo">
-    <div id="intro-ph"><span class="ic">📷</span><span>add your cover photo here</span></div>
-  </div>
+  <div id="intro-photo"></div>
   <div id="intro-ov"></div>
   <div id="intro-box">
     <p class="i-label">8 · March · 2025</p>
@@ -914,12 +917,12 @@ footer b{color:var(--rose);font-weight:normal;}
 <!-- ══ MAIN ══ -->
 <div id="site">
   <div id="bg">
-    <div class="bgc">📷</div><div class="bgc">📷</div>
-    <div class="bgc">📷</div><div class="bgc">📷</div>
-    <div class="bgc">📷</div><div class="bgc">📷</div>
-    <div class="bgc">📷</div><div class="bgc">📷</div>
-    <div class="bgc">📷</div><div class="bgc">📷</div>
-    <div class="bgc">📷</div><div class="bgc">📷</div>
+    <div class="bgc"><img src="photos/bg1.jpg" alt=""></div><div class="bgc"><img src="photos/bg2.jpg" alt=""></div>
+    <div class="bgc"><img src="photos/bg3.jpg" alt=""></div><div class="bgc"><img src="photos/bg4.jpg" alt=""></div>
+    <div class="bgc"><img src="photos/bg5.jpg" alt=""></div><div class="bgc"><img src="photos/bg6.jpg" alt=""></div>
+    <div class="bgc"><img src="photos/bg7.jpg" alt=""></div><div class="bgc"><img src="photos/bg8.jpg" alt=""></div>
+    <div class="bgc"><img src="photos/bg9.jpg" alt=""></div><div class="bgc"><img src="photos/bg10.jpg" alt=""></div>
+    <div class="bgc"><img src="photos/bg11.jpg" alt=""></div><div class="bgc"><img src="photos/bg12.jpg" alt=""></div>
   </div>
   <div id="vign"></div>
 
@@ -957,14 +960,14 @@ footer b{color:var(--rose);font-weight:normal;}
     <p class="slabel">our memories</p>
     <h2 class="stitle">moments i never want to forget</h2>
     <div class="track" id="track">
-      <div class="pc" onclick="openSS(0)"><div class="pph">📸<span>photo 1</span></div><div class="pov"></div></div>
-      <div class="pc" onclick="openSS(1)"><div class="pph">📸<span>photo 2</span></div><div class="pov"></div></div>
-      <div class="pc" onclick="openSS(2)"><div class="pph">📸<span>photo 3</span></div><div class="pov"></div></div>
-      <div class="pc" onclick="openSS(3)"><div class="pph">📸<span>photo 4</span></div><div class="pov"></div></div>
-      <div class="pc" onclick="openSS(4)"><div class="pph">📸<span>photo 5</span></div><div class="pov"></div></div>
-      <div class="pc" onclick="openSS(5)"><div class="pph">📸<span>photo 6</span></div><div class="pov"></div></div>
-      <div class="pc" onclick="openSS(6)"><div class="pph">📸<span>photo 7</span></div><div class="pov"></div></div>
-      <div class="pc" onclick="openSS(7)"><div class="pph">📸<span>photo 8</span></div><div class="pov"></div></div>
+      <div class="pc" onclick="openSS(0)"><img src="photos/gallery1.jpg" alt=""><div class="pov"></div></div>
+      <div class="pc" onclick="openSS(1)"><img src="photos/gallery2.jpg" alt=""><div class="pov"></div></div>
+      <div class="pc" onclick="openSS(2)"><img src="photos/gallery3.jpg" alt=""><div class="pov"></div></div>
+      <div class="pc" onclick="openSS(3)"><img src="photos/gallery4.jpg" alt=""><div class="pov"></div></div>
+      <div class="pc" onclick="openSS(4)"><img src="photos/gallery5.jpg" alt=""><div class="pov"></div></div>
+      <div class="pc" onclick="openSS(5)"><img src="photos/gallery6.jpg" alt=""><div class="pov"></div></div>
+      <div class="pc" onclick="openSS(6)"><img src="photos/gallery7.jpg" alt=""><div class="pov"></div></div>
+      <div class="pc" onclick="openSS(7)"><img src="photos/gallery8.jpg" alt=""><div class="pov"></div></div>
     </div>
   </section>
 
@@ -1159,6 +1162,8 @@ footer b{color:var(--rose);font-weight:normal;}
 
 <!-- SLIDESHOW — Kodak 400 Ultramax -->
 <div id="ss">
+  <!-- Film frame PNG — sits on top of every photo -->
+  <div class="frame-overlay"></div>
   <!-- Overlays -->
   <div class="kodak-vign"></div>
   <div class="kodak-grain"></div>
@@ -1169,20 +1174,31 @@ footer b{color:var(--rose);font-weight:normal;}
   <div class="dx-bot" id="dxBot"></div>
 
   <div class="stb">
-    <span class="sctr" id="sctr">001</span>
+    <span class="sctr" id="sctr">001A</span>
     <span class="sttl">KODAK 400 ULTRAMAX ▸ our story</span>
     <button class="scls" onclick="closeSS()">×</button>
   </div>
 
-  <!-- ✏️ Replace .slph divs with <img src="photos/photo1.jpg"> -->
-  <div class="sl act"><div class="slph"><span class="cam">📷</span>Add photo 1</div></div>
-  <div class="sl"><div class="slph"><span class="cam">📷</span>Add photo 2</div></div>
-  <div class="sl"><div class="slph"><span class="cam">📷</span>Add photo 3</div></div>
-  <div class="sl"><div class="slph"><span class="cam">📷</span>Add photo 4</div></div>
-  <div class="sl"><div class="slph"><span class="cam">📷</span>Add photo 5</div></div>
-  <div class="sl"><div class="slph"><span class="cam">📷</span>Add photo 6</div></div>
-  <div class="sl"><div class="slph"><span class="cam">📷</span>Add photo 7</div></div>
-  <div class="sl"><div class="slph"><span class="cam">📷</span>Add photo 8</div></div>
+  <div class="sl act"><img src="photos/slide1.jpg" alt=""></div>
+  <div class="sl"><img src="photos/slide2.jpg" alt=""></div>
+  <div class="sl"><img src="photos/slide3.jpg" alt=""></div>
+  <div class="sl"><img src="photos/slide4.jpg" alt=""></div>
+  <div class="sl"><img src="photos/slide5.jpg" alt=""></div>
+  <div class="sl"><img src="photos/slide6.jpg" alt=""></div>
+  <div class="sl"><img src="photos/slide7.jpg" alt=""></div>
+  <div class="sl"><img src="photos/slide8.jpg" alt=""></div>
+  <div class="sl"><img src="photos/slide9.jpg" alt=""></div>
+  <div class="sl"><img src="photos/slide10.jpg" alt=""></div>
+  <div class="sl"><img src="photos/slide11.jpg" alt=""></div>
+  <div class="sl"><img src="photos/slide12.jpg" alt=""></div>
+  <div class="sl"><img src="photos/slide13.jpg" alt=""></div>
+  <div class="sl"><img src="photos/slide14.jpg" alt=""></div>
+  <div class="sl"><img src="photos/slide15.jpg" alt=""></div>
+  <div class="sl"><img src="photos/slide16.jpg" alt=""></div>
+  <div class="sl"><img src="photos/slide17.jpg" alt=""></div>
+  <div class="sl"><img src="photos/slide18.jpg" alt=""></div>
+  <div class="sl"><img src="photos/slide19.jpg" alt=""></div>
+  <div class="sl"><img src="photos/slide20.jpg" alt=""></div>
 
   <button class="snv p" onclick="chSl(-1)">‹</button>
   <button class="snv n" onclick="chSl(1)">›</button>
@@ -1311,7 +1327,7 @@ function updSl(){
     el.style.transform = `rotate(${pl[2]}deg) scale(${scale.toFixed(2)})`;
     el.style.transformOrigin = 'top center';
     el.innerHTML = `
-      <div class="pimg">📷<span>photo ${i+1}</span></div>
+      <div class="pimg"><img src="photos/pol${i+1}.jpg" alt=""></div>
       <div class="pcap">${captions[i]}</div>
     `;
     container.appendChild(el);
@@ -1443,9 +1459,9 @@ let currentQ=0;
 let score=0;
 const totalQ=3;
 const quizCards=document.querySelectorAll('.quiz-card');
-const msgs=['Дұрыс! 🎉','ЕЕЕЕЕЕЕЕЕЕЕ💕','Менің жарығым! ✨'];
-const wrongMsgs=[':( 🌸','ты сможешь жаным💗','почти:(🌷'];
-const scoreMessages=['Мен сені сүйемін 💕','мое солнышко💖','жарығым ✨'];
+const msgs=['Дұрыс! 🎉','Солай! 💕','Менің жарығым! ✨'];
+const wrongMsgs=['Ойла... 🌸','Тырыс! 💗','Ойлан! 🌷'];
+const scoreMessages=['Мен сені сүйемін 💕','Сен менің барлығымсың 💖','Менің жарығым ✨'];
 
 // Build progress pips
 const qprog=document.getElementById('quizProgress');
@@ -1468,22 +1484,22 @@ document.querySelectorAll('.quiz-opt').forEach(btn=>{
       allOpts.forEach(o=>o.classList.add('correct'));
       score++;
       const multiMsgs = {
-        '1': 'АЙ ТИГРРРРРРР',
-        '2': 'Сені жақсы көрем ғо💕'
+        '1': 'Барлығы да! Сен мені жақсы білесің 😍',
+        '2': 'Барлығы дұрыс! Мен сені сондай жақсы көремін 💕'
       };
-      feedback.textContent = multiMsgs[card.dataset.q] || 'АЙ ХОРОШ бәрі дұрыс! 💕';
+      feedback.textContent = multiMsgs[card.dataset.q] || 'Барлығы дұрыс! 💕';
       feedback.classList.add('show');
     } else {
       const correct=this.dataset.correct==='1';
       if(correct){
         this.classList.add('correct');
         score++;
-        feedback.textContent=msgs[currentQ]||'еееее🎉';
+        feedback.textContent=msgs[currentQ]||'Дұрыс! 🎉';
         feedback.classList.add('show');
       } else {
         this.classList.add('wrong');
         allOpts.forEach(o=>{ if(o.dataset.correct==='1') o.classList.add('correct'); });
-        feedback.textContent=wrongMsgs[currentQ]||':(';
+        feedback.textContent=wrongMsgs[currentQ]||'Ойла... 🌸';
         feedback.classList.add('show');
       }
     }
