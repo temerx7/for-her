@@ -233,13 +233,13 @@ body {
   width:130px;
   cursor:pointer;
   user-select:none;
+  pointer-events:all;
   filter:drop-shadow(0 4px 14px rgba(255,45,107,.35));
   opacity:0;
   transition:opacity 1.3s ease;
   animation:secretPulse 3s ease-in-out infinite;
 }
 #secret-star.show { opacity:1; }
-#secret-star { pointer-events:all; }
 #secret-star img {
   width:100%;height:auto;display:block;
   border-radius:12px;
@@ -292,8 +292,7 @@ body {
   margin-top:1rem;letter-spacing:.1em;
   animation:spMsgIn 1s ease .7s both;
 }
-/* Secret star click counter hint */
-#secret-star .scount { display:none; }
+
 
 /* ══ CURSOR ══ */
 #cur  { position:fixed;width:11px;height:11px;background:var(--rose);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:screen;transition:width .3s,height .3s;box-shadow:0 0 12px var(--rose),0 0 24px rgba(255,45,107,.4); }
@@ -984,8 +983,8 @@ footer b{color:var(--rose);font-weight:normal;}
   <div class="sp-photo">
     <img src="photos/secret.png" alt="">
   </div>
-  <p class="sp-msg">Осы жерге басатыныңды білген едім хехехех, люблюю тебя солнышко💕</p>
-  <p class="sp-sub">— ты мое всё, аппағым</p>
+  <p class="sp-msg">Осы жерге басатыныңды білген едім, жарығым 💕</p>
+  <p class="sp-sub">— сен менің барлығымсың</p>
 </div>
 
 <!-- ══ INTRO ══ -->
